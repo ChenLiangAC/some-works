@@ -1,0 +1,144 @@
+html{
+    height: 100%;
+}
+body{
+    height: 100%;
+    background: url("../images/bg.png") no-repeat center;
+    background-size: 100%;
+    /*text-align: center;*/
+    color: #fff;
+}
+
+header{
+    width: 100%;
+    height: 50px;
+
+    border-bottom: 2px solid #fff;
+}
+header .logo{
+    width: 60px;
+    height: 50px;
+    background: url("../images/unnamed.webp") no-repeat center;
+    background-size: 50%;
+    float: left;
+
+
+}
+header .app-name{
+    color: #fff;
+    line-height: 50px;
+    font-size: 20px;
+    text-align: left;
+    letter-spacing: 1px;
+}
+.content{
+    width: 100%;
+    margin-top: 40px;
+    text-align: center;
+}
+.tip-content{
+    width:87%;
+    min-height: 180px;
+    padding: 10px;
+    position: relative;
+    margin: 30px auto;
+    border-top: 2px solid #ccc;
+    border-bottom: 2px solid #ccc;
+}
+.tip-content .waring-content .warning-icon{
+    float: left;
+    height: 150px;
+    margin-right: 15px;
+}
+.waring-content .waring-text{
+    font-size: 15px;
+    line-height: 25px;
+    margin-top: 5px;
+}
+.waring-text .title{
+    font-size: 18px;
+    font-weight: 700;
+    padding-bottom: 5px;
+}
+.button-content{
+    position: absolute;
+    left: 0;
+    /* width: 59%; */
+    right: 0;
+    margin: auto;
+    bottom: 15px;
+}
+.button-content .btn{
+    width: 40%;
+    display: inline-block;
+    height: 43px;
+   margin-left: 25px;
+    text-align: center;
+    line-height: 40px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight:bold;
+    color: #fff;
+    background: rgba(255,255,255,0.4);
+}
+.button-content .repair-btn{
+    background: #18c8a8;
+}
+#pagetwo{
+    background: #fff;
+    height: 100%;
+    color: #333;
+
+}
+#pagetwo .pagetwo-title{
+    font-size: 25px;
+   padding-top: 45px;
+    text-align: center;
+}
+#pagetwo img.icon{
+    margin:40px auto;
+    display: block;
+
+    text-align: center;
+}
+.step-text{
+    width: 80%;
+    margin: auto;
+    line-height: 25px;
+}
+.step-text .icon-numberone{
+     height: 32px;
+     width: 45px;
+     float: left;
+     display: inline-block;
+     background: url("../images/1.png") no-repeat;
+     background-size: 70%;
+ }
+.step-text .icon-numbertwo{
+    height: 32px;
+    width: 45px;
+    float: left;
+    display: inline-block;
+    background: url("../images/2.png") no-repeat;
+    background-size: 70%;
+}
+.fix-btn a{
+    width: 75%;
+    display: block;
+    height: 45px;
+    background:#18c8a8 ;
+    margin: 30px auto;
+    line-height: 45px;
+    color: #fff;
+    font-size: 23px;
+    border-radius: 5px;
+    text-align: center;
+    box-shadow: 0px 4px 1px #37ab91;
+}
+@media only screen and (max-width: 320px) {
+    .tip-content{
+
+        min-height: 220px;
+
+    }
+}

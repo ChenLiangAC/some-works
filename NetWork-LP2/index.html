@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, width=device-width">
+    <title>NetWork app</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="pageone">
+<header>
+    <div class="logo"></div>
+    <span class="app-name">Network Manager</span>
+</header>
+<div class="content">
+    <div class="number"><strong style="font-size: 7rem">15</strong> <b>POINTS</b></div>
+    <p><b>NETWORK SYSTEM SECURITY SCORE TOO LOW</b></p>
+</div>
+<div class="tip-content">
+    <div class="waring-content">
+        <div class="warning-icon">
+            <img src="images/wifi-sign.png" alt="" width="80" height="80">
+        </div>
+        <div class="waring-text">
+            <p class="title">Your network system may have some risks!</p>
+            <p>There maybe a threat from your online shopping security.</p>
+        </div>
+    </div>
+    <div class="button-content">
+        <a href="http://www.baidu.com" class="btn">IGNORES RISKS</a>
+        <a href="#pagetwo" class="btn repair-btn" id="nextpage">REPAIR RISKS</a>
+    </div>
+</div>
+</div>
+<div id="pagetwo" style="display: none">
+    <header style="border-bottom: 2px solid #22a5ff;">
+        <div class="logo"></div>
+        <span class="app-name" style="color: #22a5ff;">Network Manager</span>
+    </header>
+    <p class="pagetwo-title">HOW TO REPAIR RISKS</p>
+    <p style="font-size: 16px;text-align: center;color: #ccc;line-height: 25px">Network Manager</p>
+    <img class="icon" src="images/782.png" alt=""width="133" height="131">
+    <div class="step-text">
+        <span class="icon-numberone"></span><p><b>Step 1:</b> Click on the button below and install the app.</p>
+        <span class="icon-numbertwo"></span><p><b>Step 2:</b> Open the application and repair risks.</p>
+    </div>
+    <div class="fix-btn">
+        <a href="http://www.baidu.com" >REPAIR RISKS</a>
+    </div>
+</div>
+<script type="text/javascript">
+    var nextpage=document.getElementById("nextpage");
+    var page1=document.getElementById("pageone");
+    var page2=document.getElementById("pagetwo");
+    var backbtn=document.getElementById("back");
+    nextpage.onclick=function () {
+        page1.style.display = "none";
+        page2.style.display = "block";
+    }
+    backbtn.onclick=function () {
+        page1.style.display = "block";
+        page2.style.display = "none";
+    }
+</script>
+</body>
+</html>

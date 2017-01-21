@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, width=device-width">
+    <title>Notification</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+<header>
+    <div class="icon-content">
+        <img src="images/settings-l.png" alt="" width="80" height="80">
+    </div>
+    <div class="massage">
+        <p>Your phone data usage has exceeded the limit! </p>
+        <span id="date"></span>
+    </div>
+</header>
+<div class="main-content">
+    <p class="text">Please wait while we analyze your phone data usage…   </p>
+    <!--<p class="text">ipsa molestias natus nemo nesciunt pariatur quia reiciendis </p>-->
+    <div class="progress-content" style="display: none;" id="progress">
+        <p class="check-text" id="barText">Available system memory 14% </p>
+
+        <div id="progressBar">
+            <div style="width: 100%;" id="bar"></div>
+
+        </div>
+        <div id="barFiles">12droid.lib.system.087</div>
+    </div>
+
+    <div id="statusText" ><span id="blink">Out of memory!!!</span></div>
+    <div class="step-content" id="more-info" style="display: none;">
+        <p><b>Recommended solution:</b> </p>   
+        <p><b>Step1:</b> Install clean App from Google play</p>
+        <p><b>Step2:</b> Open the application and start to remove trash files</p>
+    </div>
+</div>
+<div class="btn-content" id="button" style="display: none;">
+    <a href="#" class="btn back-btn" >No,Thanks</a>
+    <a href="http://www.baidu.com" class="btn">Install</a>
+</div>
+<div class="cover" id="cover"></div>
+<div class="pop" id="pop1">
+
+    <div class="pop_cot">
+        <!--<p class="p1"></p>-->
+        <p style="color:#7d7d7f; font-weight:500;">Your phone data usage has exceeded the limit! Press 'OK' to clean trash files.</p>
+
+    </div>
+    <a href="javascript:void(-1)" class="btn_blue" id="ok1" >OK</a>
+</div>
+<script type="text/javascript" src="js/index.js"></script>
+</body>
+</html>

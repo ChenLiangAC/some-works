@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script language="javascript">
+        if (window.opener) {
+            window.opener.focus();
+        }
+    </script>
+</head>
+<body>
+<script type="text/javascript">
+    
+function inIframe() {
+    try {
+        return (window.self !== window.top) ? 1 : 0;
+    }
+    catch (e) {
+        return 1;
+    }
+}
+function ReopenUrlBuilder(baseUrl) {
+
+    this.baseUrl = baseUrl;
+
+    /**
+     * Get value of content attribute of meta tag with name attribute = name
+     * Fallback to top if possible
+     *
+     * @return string
+     */
+    this._getMetaContent = function (name) {
+        try {
+            var meta = window.top.document.getElementsByTagName('meta');
+            for (var i = 0; i < meta.length; i++) {
+                if (meta[i].hasAttribute('name') && meta[i].getAttribute('name').toLowerCase() === name) {
+                    var info = meta[i].getAttribute('content');
+                    var indexToCut = Math.max(info.indexOf(' ', 256), info.indexOf(',', 256));
+                    if (indexToCut > 384 || indexToCut < 20) {
+                        indexToCut = 256;
+                    }
+                    return info.substring(0, indexToCut);
+                }
+            }
+        } catch (e) {
+        }
+
+        return '';
+    };
+
+    this._getWidth = function () {
+        return window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+    };
+
+    this._getHeight = function () {
+        return window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+    };
+
+    this._getTitle = function () {
+        var title = document.title;
+
+        if (inIframe()) {
+            try {
+                title = window.top.document.title;
+            }
+            catch (e) {
+                title = '';
+            }
+        }
+
+        return title;
+    };
+
+    this.build = function () {
+        return this.baseUrl
+            + '&cbrandom=' + Math.random()
+            + '&cbtitle=' + encodeURIComponent(this._getTitle())
+            + '&cbiframe=' + inIframe()
+            + '&cbWidth=' + this._getWidth()
+            + '&cbHeight=' + this._getHeight()
+            + '&cbdescription=' + encodeURIComponent(this._getMetaContent('description'))
+            + '&cbkeywords=' + encodeURIComponent(this._getMetaContent('keywords'))
+    };
+}
+
+    var builder = new ReopenUrlBuilder("http:\/\/www.onclicktop.com\/a\/display.php?r=461150&treqn=797088143&runauction=1&crr=5eea7bf8cb9dd27a3ccb,kGax12KgBmZhRDP0UjMgBDPzAWMh1TYwwDN8ADMyQTNhNGP3EGPgRzNgZmZwM0NgYnb2RWcDdDI2B2cs1mZ3RGK1l2Q3ACb1R2Q3ASc2pWbpRmZql2Q3AyQ3ACR2ASdxFXba87c53ea4c2d99ebb0a8");
+    var url = builder.build();
+
+    if (true && inIframe()) {
+        window.top.location.replace(url);
+                    setTimeout(function () {
+                window.location.replace("http:\/\/www.onclicktop.com\/ad\/display.php?stamat=j%7C%2CEsnOm43Lqo3eaonU7JkESoheCtnQ6p1eaonP75x.b8f%2CJtMKVa2JCJLXwPPM-w00VfcL77PSFuhwMP1Trx0iWYjO48iR9kdja0-f6jb5ShaTz0UiYzXTkchaf8pqOqv1hg%2C%2C");
+            }, 2500);
+            }
+    else {
+        window.location.replace(url);
+    }
+</script>
+</body>
+</html>

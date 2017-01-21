@@ -1,0 +1,269 @@
+header {
+    height: 110px;
+    /*width: 83%;*/
+    border-bottom: 1px solid #c0c1c2;
+    margin: 20px auto;
+    padding: 12px;
+}
+
+header .icon-content {
+    float: left;
+    padding-right: 20px;
+}
+
+header .massage p {
+    line-height: 30px;
+    padding-left: 20px;
+    font-weight: 800;
+    font-size: 15px;
+}
+
+header #date {
+    line-height: 25px;
+    color: #ccc;
+    font-size: 14px;
+}
+
+.main-content .text {
+    padding: 4px;
+    display: block;
+    width: 90%;
+    margin: auto;
+    color: #7d7d7f;
+    font-size: 15px;
+    line-height: 25px;
+    font-weight: 400;
+}
+
+.main-content .progress-content .check-text {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 18px;
+    color: #7d7d7f;
+    font-weight: bold;
+}
+
+#progressBar {
+    height: 1rem;
+    width: 90%;
+    margin: auto;
+    border: 1px solid rgb(162, 162, 162);
+    position: relative;
+    border-radius: 40px;
+}
+
+#progressBar > #bar {
+    /*background-image: linear-gradient(135deg, rgba(182, 235, 16, 0.65) 25%, transparent 25%, transparent 50%, rgba(182, 235, 16, 0.52) 50%, rgba(182, 235, 16, 0.49) 75%, rgba(220, 221, 229, 0) 75%, rgba(220, 221, 229, 0.38));*/
+    /*background-size: 40px 40px;*/
+    background: #03a9f4;
+    height: 100%;
+    border-radius: 40px;
+    /*background-color: rgb(255, 255, 255);*/
+    width: 1%;
+    box-shadow: 0px -1px 0px rgba(0, 0, 0, 0.15) inset;
+    transition: width 300ms ease 0s;
+    animation: 2s linear 0s normal none infinite running progress-bar-stripes;
+}
+
+#barFiles {
+    margin: 8px;
+    font-weight: 500;
+    text-align: center;
+    color: #7d7d7f;
+}
+
+#statusText {
+    text-shadow: 0px 1px rgb(54, 75, 91);
+    display: none;
+    text-align: center;
+    color: white;
+    background-color: rgb(245, 64, 48);
+
+    height: 36px;
+    box-shadow: 0px 0px 10px #DD0101;
+    font-weight: bold;
+    width: 90%;
+    line-height: 36px;
+    margin: 10px auto;
+
+}
+
+#blink {
+
+    -webkit-animation: blink 1s infinite;
+    -moz-animation: blink 1s infinite;
+    -ms-animation: blink 1s infinite;
+    -o-animation: blink 1s infinite;
+    animation: blink 1s infinite;
+}
+
+#barText {
+
+    transform: translate(0px, -50%);
+
+}
+
+.step-content {
+    width: 90%;
+    line-height: 27px;
+    display: block;
+    font-weight: 300;
+    margin: 18px auto;
+}
+
+.btn-content {
+    text-align: center;
+    border-top: 1px solid #7d7d7f;
+    border-bottom: 1px solid #7d7d7f;
+}
+
+.btn-content .btn {
+    display: inline-block;
+    height: 50px;
+    line-height: 50px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #03a9f4;
+    width: 44%;
+}
+
+.btn-content .btn.back-btn {
+    border-right: 1px solid #7d7d7f;
+}
+
+.pop {
+    position: fixed;
+    width: 77%;
+    height: 200px;
+    left: 12%;
+    top: 30%;
+    border-radius: 10px;
+    /*margin-left: -200px;*/
+    /*margin-top: -150px;*/
+    /*border: 1px solid #3b5998;*/
+    background-color: #FFF;
+}
+
+.pop_title {
+    background-color: #6c83b3;
+    height: 38px;
+    line-height: 38px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding-left: 15px;
+    color: #FFF;
+}
+
+.pop_cot {
+   margin: 20px auto;
+    width: 78%;
+    padding-bottom: 26px;
+
+}
+
+.pop .p1 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
+    padding: 0.5rem 0px 0.8rem 0px;
+}
+
+.pop p {
+    font-size: 16px;
+    /*text-align: justify;*/
+}
+
+.pop .p2 {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #333;
+    padding: 0.5rem 0px;
+}
+
+.pop .btn_blue {
+    font-size: 1rem;
+    font-weight:bold;
+    color: #fff;
+    line-height: 40px;
+    padding: 0px;
+    width: 55%;
+    height: 40px;
+    background:#03a9f4 ;
+    text-align: center;
+    display: block;
+    margin: 0px auto;
+    border-radius: 2px;
+}
+
+.cover {
+    background-color: #000;
+    filter: alpha(opacity=20);
+    -moz-opacity: 0.2;
+    opacity: 0.2;
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+}
+
+@-webkit-keyframes blink {
+    0% {
+        opacity: 1.0;
+    }
+    50% {
+        opacity: 0.0;
+    }
+    100% {
+        opacity: 1.0;
+    }
+}
+
+@-moz-keyframes blink {
+    0% {
+        opacity: 1.0;
+    }
+    50% {
+        opacity: 0.0;
+    }
+    100% {
+        opacity: 1.0;
+    }
+}
+
+@-ms-keyframes blink {
+    0% {
+        opacity: 1.0;
+    }
+    50% {
+        opacity: 0.0;
+    }
+    100% {
+        opacity: 1.0;
+    }
+
+}
+
+@-o-keyframes blink {
+    0% {
+        opacity: 1.0;
+    }
+    50% {
+        opacity: 0.0;
+    }
+    100% {
+        opacity: 1.0;
+    }
+}
+
+@keyframes blink {
+    0% {
+        opacity: 1.0;
+    }
+    50% {
+        opacity: 0.0;
+    }
+    100% {
+        opacity: 1.0;
+    }
+}

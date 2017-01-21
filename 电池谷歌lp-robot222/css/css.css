@@ -1,0 +1,447 @@
+@charset "utf-8";
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+*:before, *:after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {
+    border: 0;
+    outline: 0;
+    margin: 0;
+    padding: 0;
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+}
+
+html, body, form, fieldset, p, div, h1, h2, h3, h4, h5, h6 {
+    -webkit-text-size-adjust: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-size: 100%;
+}
+
+body {
+    color: #1a1a1a;
+    -webkit-text-size-adjust: none;
+}
+
+body, img {
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-size: 100%
+}
+
+ul, ol, li {
+    list-style: none
+}
+
+a {
+    text-decoration: none;
+    color: #000
+}
+
+a:hover {
+    color: #1c5aa2;
+    text-decoration: none;
+}
+
+img {
+    vertical-align: middle;
+    border: 0;
+    -ms-interpolation-mode: bicubic;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0)
+}
+
+button, input, select, textarea {
+    font-size: 100%;
+    vertical-align: middle;
+    outline: 0;
+}
+
+textarea {
+    resize: none
+}
+
+button, input[type=button], input[type=reset], input[type=submit] {
+    cursor: pointer;
+    -webkit-appearance: button;
+    -moz-appearance: button
+}
+
+input:focus:-moz-placeholder, input:focus::-webkit-input-placeholder {
+    color: transparent
+}
+
+button::-moz-focus-inner, input::-moz-focus-inner {
+    border: 0;
+    padding: 0
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0
+}
+
+.clearfix:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+/* Hides from IE-mac \*/
+* html .clearfix {
+    height: 1%;
+}
+
+/* End hide from IE-mac */
+html, body {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#body {
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    animation: changecolor 0.5s infinite alternate;
+    -webkit-animation: changecolor 0.5s infinite alternate;
+    -moz-animation: changecolor 0.5s infinite alternate;
+    -o-animation: changecolor 0.5s infinite alternate;
+    -ms-animation: changecolor 0.5s infinite alternate;
+}
+
+@keyframes changecolor {
+    0% {
+        background-color: #000
+    }
+    8% {
+        background-color: #262626;
+    }
+    100% {
+        background-color: #000
+    }
+}
+
+@-webkit-keyframes changecolor {
+    0% {
+        background-color: #000
+    }
+    8% {
+        background-color: #262626;
+    }
+    100% {
+        background-color: #000
+    }
+}
+
+@-moz-keyframes changecolor {
+    0% {
+        background-color: #000
+    }
+    8% {
+        background-color: #262626;
+    }
+    100% {
+        background-color: #000
+    }
+}
+
+@-o-keyframes changecolor {
+    0% {
+        background-color: #000
+    }
+    8% {
+        background-color: #262626;
+    }
+    100% {
+        background-color: #000
+    }
+}
+
+@-ms-keyframes changecolor {
+    0% {
+        background-color: #000
+    }
+    8% {
+        background-color: #262626;
+    }
+    100% {
+        background-color: #000
+    }
+}
+
+#cover {
+    display: none;
+    background-color: #000;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0px;
+    top: 0px;
+}
+
+.k_alert {
+    z-index: 150;
+    display: none;
+    width: 300px;
+    background-color: #282828;
+    position: fixed;
+    left: 50%;
+    margin-left: -150px;
+    top: 50%;
+    margin-top: -215px;
+    word-wrap: break-word;
+}
+
+.k_alert h1 {
+    font-size: 20px;
+    font-weight: normal;
+    line-height: 50px;
+    border-bottom: 2px solid #76afcc;
+    color: #76afcc;
+    padding: 0px 15px;
+    margin: 0px;
+}
+
+.k_alert p {
+    font-size: 16px;
+    line-height: 20px;
+    padding: 14px 10px 14px 14px;
+    color: #fff;
+
+    margin: 0px;
+}
+
+.k_alert .k_btn {
+    height: 46px;
+    line-height: 46px;
+    font-size: 16px;
+    text-align: center;
+    display: block;
+    color: #fff;
+    border-top: 2px solid #3f3f3f;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+#cover {
+    animation: changecolor2 0.5s infinite alternate;
+    -webkit-animation: changecolor2 0.5s infinite alternate;
+    -moz-animation: changecolor2 0.5s infinite alternate;
+    -o-animation: changecolor2 0.5s infinite alternate;
+    -ms-animation: changecolor2 0.5s infinite alternate;
+}
+
+@keyframes changecolor2 {
+    0% {
+        background-color: #000
+    }
+    8% {
+        background-color: #1a1a1a;
+    }
+    100% {
+        background-color: #000
+    }
+}
+
+@-webkit-keyframes changecolor2 {
+    0% {
+        background-color: #000
+    }
+    8% {
+        background-color: #1a1a1a;
+    }
+    100% {
+        background-color: #000
+    }
+}
+
+@-moz-keyframes changecolor2 {
+    0% {
+        background-color: #000
+    }
+    8% {
+        background-color: #1a1a1a;
+    }
+    100% {
+        background-color: #000
+    }
+}
+
+@-o-keyframes changecolor2 {
+    0% {
+        background-color: #000
+    }
+    8% {
+        background-color: #1a1a1a;
+    }
+    100% {
+        background-color: #000
+    }
+}
+
+@-ms-keyframes changecolor2 {
+    0% {
+        background-color: #000
+    }
+    8% {
+        background-color: #1a1a1a;
+    }
+    100% {
+        background-color: #000
+    }
+}
+
+@media screen and (max-width: 300px) {
+    .k_alert {
+        width: 96%;
+        left: 2%;
+        margin-left: 0px;
+    }
+}
+
+#kAlert {
+    filter: alpha(opacity=100);
+    -moz-opacity: 1;
+    opacity: 1;
+
+}
+
+@keyframes ff {
+    0% {
+        filter: alpha(opacity=100);
+        -moz-opacity: 1;
+        opacity: 1;
+    }
+    8% {
+        filter: alpha(opacity=75);
+        -moz-opacity: 0.75;
+        opacity: 0.75;
+    }
+    100% {
+        filter: alpha(opacity=100);
+        -moz-opacity: 1;
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes ff {
+    0% {
+        filter: alpha(opacity=100);
+        -moz-opacity: 1;
+        opacity: 1;
+    }
+    8% {
+        filter: alpha(opacity=75);
+        -moz-opacity: 0.75;
+        opacity: 0.75;
+    }
+    100% {
+        filter: alpha(opacity=100);
+        -moz-opacity: 1;
+        opacity: 1;
+    }
+}
+
+@-moz-keyframes ff {
+    0% {
+        filter: alpha(opacity=100);
+        -moz-opacity: 1;
+        opacity: 1;
+    }
+    8% {
+        filter: alpha(opacity=75);
+        -moz-opacity: 0.75;
+        opacity: 0.75;
+    }
+    100% {
+        filter: alpha(opacity=100);
+        -moz-opacity: 1;
+        opacity: 1;
+    }
+}
+
+@-o-keyframes ff {
+    0% {
+        filter: alpha(opacity=100);
+        -moz-opacity: 1;
+        opacity: 1;
+    }
+    8% {
+        filter: alpha(opacity=75);
+        -moz-opacity: 0.75;
+        opacity: 0.75;
+    }
+    100% {
+        filter: alpha(opacity=100);
+        -moz-opacity: 1;
+        opacity: 1;
+    }
+}
+
+@-ms-keyframes ff {
+    0% {
+        filter: alpha(opacity=100);
+        -moz-opacity: 1;
+        opacity: 1;
+    }
+    8% {
+        filter: alpha(opacity=75);
+        -moz-opacity: 0.75;
+        opacity: 0.75;
+    }
+    100% {
+        filter: alpha(opacity=100);
+        -moz-opacity: 1;
+        opacity: 1;
+    }
+}
+
+@media screen and (max-height: 350px) {
+    .k_alert h1 {
+        font-size: 18px;
+        line-height: 44px;
+    }
+
+    .k_alert p {
+        padding: 10px 10px 10px 14px;
+    }
+
+    .k_alert {
+        margin-top: -105px;
+    }
+}
+
+.timg {
+    display: block;
+    position: fixed;
+    width: 240px;
+    left: 50%;
+    margin-left: -120px;
+    top: 50%;
+    margin-top: -70px;
+    animation: ff 0.3s infinite alternate;
+    -webkit-animation: ff 0.3s infinite alternate;
+    -moz-animation: ff 0.3s infinite alternate;
+    -o-animation: ff 0.3s infinite alternate;
+    -ms-animation: ff 0.3s infinite alternate;
+}

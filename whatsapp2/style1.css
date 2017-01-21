@@ -1,0 +1,154 @@
+        body {
+	font-family: arial, helvetica, sans-serif;
+	background-color: #153739;
+	text-align: center;
+	padding-top: 18px;
+	color: #fff;
+	background-image: url('http://www.whatsapp-version.com/lp/it/1/images/whatsappbg.png');
+	background-attachment: fixed;
+	background-position: 50% 50%;
+	background-size: cover;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-repeat: no-repeat;
+	font-size: 16px;
+        }
+        #expired-icon {
+            position: absolute;
+            display: block;
+            top: 0;
+            left: 0;
+        }
+        #logo img {
+            display: block;
+            margin: 0 auto;
+			
+        }
+        #warning {
+            background: #153436;
+            padding:10px 0px 10px 0px;
+            margin-top: 100px 100px 100px 100px;
+        }
+        #warning p {
+	color: #ff0000;
+	font-size: 20px;
+	line-height: 25px;
+	font-weight: bold;
+	max-width: 320px;
+	margin: 0 auto;
+        }
+        #text {
+	width: 300px;
+	margin: -10px auto 0;
+	text-align: left;
+	font-size: 16px;
+        }
+        #text p {
+	font-size: 16px;
+	line-height: 20px;
+	font-weight: semi-bold;
+	text-align: center;
+        }
+        #button {
+
+        }
+        #button a {
+            display: block;
+            width: 40%;
+            height: 58px;
+            border: 1px solid #17632B;
+            background: #12A40F;
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            border-radius: 5px;
+            margin: 0 auto;
+            text-align: left;
+            font-size: 28px;
+            line-height: 58px;
+            color: #ffffff;
+            font-weight: bold;
+            text-transform: uppercase;
+            text-decoration: none;
+        }
+        #button a img {
+            display: block;
+            float: left;
+            margin-top: 10px;
+            margin-left: 10px;
+        }
+        #button a span {
+            display: block;
+            float: left;
+            margin-left: 10px;
+        }
+        .subtitle {
+            margin-top: 30px;
+            font-size: 13px;
+            line-height: 16px;
+            font-style: italic;
+        }
+
+        #timer{
+            font-size: 14px;
+            font-weight: bold;
+            margin-top: 15px;
+            margin-bottom: 15px;
+        }
+        #theTime span {
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        /* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
+        @media only screen and (max-width: 479px) {
+            #expired-icon {
+                width: 100px;
+            }
+            #logo img {
+                width: 120px;
+				margin-bottom: -10px;
+            }
+            #warning p {
+                font-size: 18px;
+                line-height: 20px;
+	
+            }
+            #button a {
+                width: 47%;
+                height: 48px;
+                font-size: 25px;
+                line-height: 48px;
+            }
+            #button img {
+                width: 30px;
+                margin-top: 7px;
+            }
+        }
+		
+#body2 {
+	font-weight: bold;
+}
+#text p span center {
+	color: #FFF;
+	font-size: 14px;
+}
+#text {
+	text-align: center;
+	font-size: 14px;
+	color: #FFF;
+	font-weight: regular;
+}
+#text22 {
+	text-align: center;
+}
+#text p {
+	text-align: left;
+	color: #FFF;
+}
+
+#text #spanwhatsapp {
+	text-align: center;
+	font-size: 15px;
+	color: #FFF;
+}

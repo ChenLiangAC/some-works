@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, width=device-width">
+    <title>Clean</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="title-content">
+    <p>Lack of System Memory</p>
+    <p>Junk files size: <b style="color:#e92700 ">875.7M</b></p>
+</div>
+<div class="pop-content" id="pop1">
+    <div class="logo-content">
+        <img src="images/fb.png" alt="" width="45" height="45">
+
+    </div>
+    <div class="content-text">
+        <p>Facebook memory usage:<span>535.20MB</span></p>
+    </div>
+</div>
+<div class="pop-content" id="pop2">
+    <div class="logo-content">
+        <img src="images/IS.png" alt="" width="45" height="45">
+
+    </div>
+    <div class="content-text">
+        <p>Instagram memory usage:<span>235.10MB</span></p>
+    </div>
+</div>
+<div class="pop-content" id="pop3">
+    <div class="logo-content">
+        <img src="images/WA.png" alt="" width="45" height="45">
+
+    </div>
+    <div class="content-text">
+        <p>WhatsApp memory usage:<span>105.40MB</span></p>
+    </div>
+</div>
+<p class="tips">Junk files need to be removed, or it will slow down your operation system and decrease battery life.
+</p>
+<a href="http://www.baidu.com">
+<div class="clean-btn">
+
+
+    <a href="http://www.baidu.com">Clean Now</a></div>
+</a>
+<script type="text/javascript" src="jquery.min.js"></script>
+<script type="text/javascript" >
+    $('.title-content').fadeIn('slow');
+    setTimeout(function () {
+
+        $('#pop1').addClass('bounceUP');
+        $('#pop1').css("display","block");
+
+    },500)
+    setTimeout(function () {
+        $('#pop2').addClass('bounceUP');
+        $('#pop2').css("display","block");
+
+    },1000)
+    setTimeout(function () {
+        $('#pop3').addClass('bounceUP');
+        $('#pop3').css("display","block");
+
+    },1500)
+    setTimeout(function () {
+        $('.tips').fadeIn('slow');
+        $('.clean-btn').addClass('pulse');
+        $('.clean-btn').fadeIn();
+    },3000)
+</script>
+</body>
+</html>

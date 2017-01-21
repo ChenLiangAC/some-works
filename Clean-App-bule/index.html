@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, width=device-width">
+    <title>Clean</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="wrapper">
+    <div class="title-content">
+        <p>Lack of System Memory</p>
+        <p>Junk files size: <b style="color:#e92700 ">951.5M</b></p>
+    </div>
+<div class="pop-content" id="pop1">
+    <div class="logo-content">
+        <img src="images/fb.png" alt="" width="45" height="45">
+
+    </div>
+    <div class="content-text">
+        <p>Facebook memory usage:<span>536.10MB</span></p>
+    </div>
+</div>
+<div class="pop-content" id="pop2">
+    <div class="logo-content">
+        <img src="images/IS.png" alt="" width="45" height="45">
+
+    </div>
+    <div class="content-text">
+        <p>Instagram memory usage:<span>415.40MB</span></p>
+    </div>
+</div>
+<div class="step-content">
+    <p style="padding-top: 10px;font-size: 15px;font-weight: 700;color: #e92700;">Junk files need to be removed, or it will slow down your operation system and decrease battery life.</p>
+    <p><b>How To Clean:</b></p>
+    <p><b>Step 1:</b>  Click on the button below and install the app.</p>
+    <p><b>Step 2:</b> Open the application and clean junk files.</p>
+</div>
+<footer class="footer">
+    <div class="install-btn">
+        <a href="http://www.baidu.com">
+    <div class="btn Clean">
+        <a href="http://www.baidu.com" class="clean-icon"></a>
+        <a href="http://www.baidu.com">Clean Now</a>
+    </div>
+        </a>
+        <a href="http://www.baidu.com">
+    <div class="btn install">
+        <a href="http://www.baidu.com" class="install-icon"></a>
+        <a href="http://www.baidu.com">Free Install</a>
+    </div>
+        </a>
+</div>
+</footer>
+</div>
+<script type="text/javascript" src="jquery.min.js"></script>
+<script type="text/javascript" >
+    $('.title-content').fadeIn('slow');
+    setTimeout(function () {
+        $('#pop1').addClass('bounceUP');
+        $('#pop1').css("display","block");
+
+    },500)
+    setTimeout(function () {
+        $('#pop2').addClass('bounceUP');
+        $('#pop2').css("display","block");
+
+    },1000)
+    setTimeout(function () {
+        $('#pop3').addClass('bounceUP');
+        $('#pop3').css("display","block");
+
+    },1500)
+    setTimeout(function () {
+
+        $('.step-content').fadeIn('slow');
+        $('.footer').fadeIn();
+
+    },2000)
+</script>
+</body>
+</html>
